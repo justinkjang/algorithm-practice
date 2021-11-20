@@ -79,3 +79,18 @@ for _ in range(t):
       f0[i] += f0[i-1]
   
   print(f0[-1])
+
+
+#BOJ 2839 SECER
+sugar=int(input())
+bag=0
+
+while sugar >= 0:
+  if sugar % 5 == 0:
+    bag += sugar // 5
+    print(bag)
+    break
+  sugar -= 3
+  bag += 1
+else:
+  print(-1)
