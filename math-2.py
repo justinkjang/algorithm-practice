@@ -38,3 +38,39 @@ if not prime_list:
   print(-1)
 else:
   print(sum(prime_list), min(prime_list), sep="\n")
+
+
+#BOJ 11653 factorization in prime factors
+
+n = int(input())
+x = 2
+
+while n != 1:
+  if n % x == 0:
+    n = n // x
+    print(x)
+  else:
+    x += 1
+
+
+
+#BOJ 1929 finding prime numbers ***super hard
+
+m, n = map(int, input().split())
+
+def isprime(m, n):
+  n += 1
+  prime = [True] * n
+
+  for i in range(2, int(n**0.5)+1):
+    if prime[i]:
+      for j in range(i+i, n, i):
+        prime[j] = False
+  for i in range(m,n):
+    if i > 1 and prime[i] == True:
+      print(i)
+
+isprime(m, n)
+
+
+
