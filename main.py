@@ -1,21 +1,20 @@
-#BOJ 4948 Chebyshev's Theorem
+#BOJ 9020 Goldbach’s Conjecture
 
-max_num = 123456 * 2 + 1
+#Prime
+max = 10000 + 1
+prime = [True] * max
 
-prime = [True] * max_num
-
-for i in range(2, int(max_num**0.5)+1):
+for i in range(2, int(max**0.5)+1):
   if prime[i]:
-    for j in range(i + i, max_num, i):
+    for j in range(i * 2, max, i):
       prime[j] = False
 
-while True:
+#Goldbach
+t = int(input())
+for _ in range(t):
   n = int(input())
-  if n == 0:
-    break
-  
-  count = 0
-  for i in range(n + 1, 2 * n + 1):
-    if prime[i]:
-      count += 1
-  print(count)
+  mid_num = n//2
+  for i in range(mid_num, 1, -1):
+    if prime[i] and prime[n - i]:
+      print(i, n-i)
+      break
