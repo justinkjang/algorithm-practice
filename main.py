@@ -1,6 +1,6 @@
 #BOJ 9020 Goldbach’s Conjecture
 
-#Prime
+#Prime Numbers
 max = 10000 + 1
 prime = [True] * max
 
