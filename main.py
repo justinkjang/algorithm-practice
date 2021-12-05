@@ -1,17 +1,14 @@
-#BOJ 3009 CETVRTA
+#BOJ 4153 Egypt
 
-x_list = []
-y_list = []
-
-for _ in range(3):
-  x, y = map(int, input().split())
-  x_list.append(x)
-  y_list.append(y)
-
-for i in range(3):
-  if x_list.count(x_list[i]) == 1:
-    a = x_list[i]
-  if y_list.count(y_list[i]) == 1:
-    b = y_list[i]
+while True:
+  nums = list(map(int,input().split()))
+  if sum(nums) == 0:
+    break
   
-print(a, b)
+  max_num = max(nums)
+  nums.remove(max_num)
+
+  if max_num ** 2 == nums[0]**2 + nums[1]**2:
+    print('right')
+  else:
+    print('wrong')
