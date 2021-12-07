@@ -1,14 +1,8 @@
-#BOJ 4153 Egypt
+#BOJ 3053 HERMAN
 
-while True:
-  nums = list(map(int,input().split()))
-  if sum(nums) == 0:
-    break
-  
-  max_num = max(nums)
-  nums.remove(max_num)
+import math
 
-  if max_num ** 2 == nums[0]**2 + nums[1]**2:
-    print('right')
-  else:
-    print('wrong')
+r = int(input())
+# 소수점 6자리
+print(f'{r**2*math.pi: .6f}')
+print(f'{r**2*2: .6f}')
