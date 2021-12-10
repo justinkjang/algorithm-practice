@@ -1,10 +1,21 @@
-#BOJ 10870 피보나치 수 5
+#BOJ 2447 별찍기 - 10
 
-def f(n):
-  if n <= 1:
-    return n
-  else:
-    return f(n-1)+f(n-2)
+n=int(input())
 
-n = int(input())
-print(f(n))
+def recursion(n):
+  if n == 1:
+    return['*']
+  
+  star_group = recursion(n//3)
+  arr = []
+
+  for star in star_group:
+    arr.append(star * 3)
+  for star in star_group:
+    arr.append(star + ' '*(n//3) + star)
+  for star in star_group:
+    arr.append(star * 3)
+  
+  return arr
+
+print('\n'.join(recursion(n)))
