@@ -1,21 +1,17 @@
-#BOJ 2447 별찍기 - 10
+#BOJ 11729 하노이탑
 
-n=int(input())
+# a = 시작
+# b = 목표
+# 6-a-b = 보조
 
-def recursion(n):
-  if n == 1:
-    return['*']
+def hanoi(n, start, end):
+  sub = 6 - start - end
+  if n > 1:
+    hanoi(n-1, start, sub)
+  print(start, end)
+  if n > 1:
+    hanoi(n-1, sub, end)
   
-  star_group = recursion(n//3)
-  arr = []
-
-  for star in star_group:
-    arr.append(star * 3)
-  for star in star_group:
-    arr.append(star + ' '*(n//3) + star)
-  for star in star_group:
-    arr.append(star * 3)
-  
-  return arr
-
-print('\n'.join(recursion(n)))
+n = int(input())
+print(2**n-1)
+hanoi(n, 1, 3)
