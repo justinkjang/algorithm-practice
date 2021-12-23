@@ -24,3 +24,5 @@ const n_arr = input.slice(1, n+1);
 const [m, ...m_arr] = input.slice(n+1);
 
 // 2~6에서 입력받는 값들을 모두 String에서 Number로 바꾸려면 split()뒤에 .map(v => +v)를 추가
+
+// trim() 쓰는 이유:: 일부 입력삽의 마지막에 개행문자 포함되는 경우를 방지하기 위해. ['가', '나', '다', '']
