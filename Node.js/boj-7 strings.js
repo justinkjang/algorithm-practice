@@ -191,7 +191,6 @@ function solution(input) {
                 }
             }
         }
-
         if (error == 0) {
             count++
         }
