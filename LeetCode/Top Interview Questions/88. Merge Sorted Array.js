@@ -5,22 +5,21 @@
  * @param {number} n
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
-var merge = function(nums1, m, nums2, n) {
-    
-    let maxIndex = m + n - 1
-    
-    m -= 1
-    n -= 1
-    
-    while (n >= 0) {
-        if (nums1[m] > nums2[n]) {
-            nums1[maxIndex] = nums1[m]
-            m -= 1
-            maxIndex -= 1
-        } else {
-            nums1[maxIndex] = nums2[n]
-            n -= 1
-            maxIndex -= 1
-        }
+var merge = function (nums1, m, nums2, n) {
+  let maxIndex = m + n - 1;
+
+  m -= 1;
+  n -= 1;
+
+  while (n >= 0) {
+    if (nums1[m] > nums2[n]) {
+      nums1[maxIndex] = nums1[m];
+      m -= 1;
+      maxIndex -= 1;
+    } else {
+      nums1[maxIndex] = nums2[n];
+      n -= 1;
+      maxIndex -= 1;
     }
+  }
 };
