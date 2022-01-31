@@ -16,6 +16,7 @@ var hasCycle = function (head) {
   let slow = head;
 
   while (fast && fast.next) {
+    // including fast.next because calling .next on null with call error
     fast = fast.next.next;
     slow = slow.next;
 
