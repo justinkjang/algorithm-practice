@@ -11,6 +11,7 @@
  * @return {boolean}
  */
 var hasCycle = function (head) {
+  // fast slow method
   let fast = head;
   let slow = head;
 
@@ -22,5 +23,8 @@ var hasCycle = function (head) {
       return true;
     }
   }
+
   return false;
 };
+
+//T = linear, S = constant
