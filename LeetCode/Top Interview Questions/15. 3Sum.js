@@ -6,7 +6,7 @@
 // [-1,0,1,2,-1,-4]
 const twoSum = (target, left, nums) => {
   let right = nums.length - 1;
-  let result = []; // [[-1,-1,2],[-1,0,1]]
+  let result = []; // [[-1,-1,2],[-1,0,1]] elements inside this result will be pushed as spread operator to the global result
 
   while (left < right) {
     let leftVal = nums[left];
