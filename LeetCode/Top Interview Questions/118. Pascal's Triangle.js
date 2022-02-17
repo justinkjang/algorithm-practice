@@ -1,3 +1,35 @@
+// 02172022
+/**
+ * @param {number} numRows
+ * @return {number[][]}
+ */
+var generate = function (numRows) {
+  if (numRows < 1) return [];
+  if (numRows === 1) return [[1]];
+
+  let triangle = [[1]];
+
+  for (let i = 1; i < numRows; i++) {
+    let curRow = [];
+    let prevRow = triangle[i - 1];
+
+    curRow.push(1);
+
+    //Pascal logic
+    for (let j = 1; j < prevRow.length; j++) {
+      curRow[j] = prevRow[j] + prevRow[j - 1];
+    }
+
+    curRow.push(1);
+
+    triangle.push(curRow);
+  }
+
+  return triangle;
+};
+
+// T = n^2 S = n
+
 /**
  * @param {number} numRows
  * @return {number[][]}
