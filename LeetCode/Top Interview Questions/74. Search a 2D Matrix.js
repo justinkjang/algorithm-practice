@@ -5,6 +5,7 @@
  * @return {boolean}
  */
 var searchMatrix = function (matrix, target) {
+  // row and col need to work binary search for a whole matrix instead of each row
   let row = matrix.length;
   let col = matrix[0].length;
   let left = 0;
