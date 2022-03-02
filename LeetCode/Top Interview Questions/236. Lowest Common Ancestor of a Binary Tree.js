@@ -34,5 +34,5 @@ var lowestCommonAncestor = function (root, p, q) {
   dfs(root);
   return result;
 };
-// HINT! dfs recursive, true or false call stacks.
+// HINT! dfs recursive, bottom up. true or false call stacks.
 // T = n, S = height
