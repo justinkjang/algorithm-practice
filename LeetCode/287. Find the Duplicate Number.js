@@ -1,3 +1,33 @@
+// 04 22 2022
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findDuplicate = function (nums) {
+  let fast = nums[0];
+  let slow = nums[0];
+  let pointer = nums[0];
+
+  while (true) {
+    fast = nums[nums[fast]];
+    slow = nums[slow];
+
+    if (fast === slow) {
+      while (true) {
+        if (slow === pointer) {
+          return pointer;
+        }
+
+        slow = nums[slow];
+        pointer = nums[pointer];
+      }
+    }
+  }
+};
+// Used:: Floyd's Cycle
+// Time:: n
+// Space:: 1
+
 // 02112022
 /**
  * @param {number[]} nums
