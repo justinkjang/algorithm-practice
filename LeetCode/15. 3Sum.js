@@ -1,3 +1,53 @@
+// 05 13 2022
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var threeSum = function (nums) {
+  // sort = n log n
+  nums.sort((a, b) => a - b);
+
+  let result = [];
+
+  // n
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === nums[i - 1]) continue;
+
+    let target = nums[i] * -1;
+
+    // n
+    let subResult = twoSum(i + 1, target, nums);
+
+    result.push(...subResult);
+  }
+
+  return result;
+};
+
+function twoSum(j, target, nums) {
+  let k = nums.length - 1;
+
+  let result = [];
+
+  while (j < k) {
+    if (nums[j] + nums[k] > target) {
+      k--;
+    } else if (nums[j] + nums[k] < target) {
+      j++;
+    } else {
+      result.push([target * -1, nums[j], nums[k]]);
+      while (j < k && nums[j] === nums[j + 1]) j++;
+      while (j < k && nums[k] === nums[k - 1]) k--;
+      j++;
+      k--;
+    }
+  }
+
+  return result;
+}
+// Time: n^2
+// Space: n
+
 /**
  * @param {number[]} nums
  * @return {number[][]}
