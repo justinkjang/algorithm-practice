@@ -1,3 +1,29 @@
+// 05 13 2022
+/**
+ * @param {number[][]} intervals
+ * @return {number[][]}
+ */
+var merge = function (intervals) {
+  intervals.sort((a, b) => a[0] - b[0]);
+
+  let result = [intervals[0]];
+
+  for (let i = 0; i < intervals.length; i++) {
+    let e1 = result[result.length - 1][1];
+    let s2 = intervals[i][0];
+    let e2 = intervals[i][1];
+
+    if (e1 >= s2) {
+      result[result.length - 1][1] = Math.max(e1, e2);
+    } else {
+      result.push(intervals[i]);
+    }
+  }
+
+  return result;
+};
+// Time: n
+// Space: n
 /**
  * @param {number[][]} intervals
  * @return {number[][]}
