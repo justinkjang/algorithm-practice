@@ -1,3 +1,29 @@
+// 05 13 2022
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function (nums, target) {
+  let hash = {};
+
+  // set hash map where key = int / val = idx
+  for (let i = 0; i < nums.length; i++) {
+    let val = nums[i];
+    hash[val] = i;
+  }
+
+  for (let i = 0; i < nums.length; i++) {
+    let potKey = target - nums[i];
+    // no duplicates
+    if (hash[potKey] && hash[potKey] !== i) {
+      return [i, hash[potKey]];
+    }
+  }
+};
+// Time:: n
+// Space:: n
+
 // 03 08 2022
 /**
  * @param {number[]} nums
