@@ -1,3 +1,40 @@
+// 05 19 2022
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var permuteUnique = function (nums) {
+  nums.sort((a, b) => a - b);
+
+  const result = [];
+
+  const dfs = (i, nums) => {
+    // base
+    if (i === nums.length) {
+      result.push(nums.slice());
+      return;
+    }
+
+    for (let j = i; j < nums.length; j++) {
+      [nums[i], nums[j]] = [nums[j], nums[i]];
+      dfs(i + 1, nums);
+      [nums[i], nums[j]] = [nums[j], nums[i]];
+    }
+  };
+
+  dfs(0, nums);
+
+  // filter duplicates
+  let hash = {};
+  for (let el of result) {
+    if (hash[el]) continue;
+    hash[el] = el;
+  }
+
+  return Object.values(hash);
+};
+// N! * N
+
 /**
  * @param {number[]} nums
  * @return {number[][]}
