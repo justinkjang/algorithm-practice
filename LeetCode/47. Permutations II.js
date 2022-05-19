@@ -11,6 +11,41 @@ var permuteUnique = function (nums) {
   const dfs = (i, nums) => {
     // base
     if (i === nums.length) {
+      // 슬라이스로 복사본을 보내는 이유는 그 다음에 똑같은 nums를 reswap해야해서.
+      result.push(nums.slice());
+      return;
+    }
+
+    let hash = {};
+
+    for (let j = i; j < nums.length; j++) {
+      if (hash[nums[j]]) continue;
+      hash[nums[j]] = true;
+
+      [nums[i], nums[j]] = [nums[j], nums[i]];
+      dfs(i + 1, nums);
+      [nums[i], nums[j]] = [nums[j], nums[i]];
+    }
+  };
+
+  dfs(0, nums);
+
+  return result;
+};
+// N! * N
+// 05 19 2022
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var permuteUnique = function (nums) {
+  nums.sort((a, b) => a - b);
+
+  const result = [];
+
+  const dfs = (i, nums) => {
+    // base
+    if (i === nums.length) {
       result.push(nums.slice());
       return;
     }
