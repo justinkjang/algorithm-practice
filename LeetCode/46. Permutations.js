@@ -1,3 +1,32 @@
+// 05 20 2022
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var permute = function (nums) {
+  const result = [];
+
+  const dfs = (i, nums) => {
+    // base
+    if (i === nums.length) {
+      result.push(nums.slice());
+      return;
+    }
+
+    //dfs
+    for (let j = i; j < nums.length; j++) {
+      [nums[i], nums[j]] = [nums[j], nums[i]];
+      dfs(i + 1, nums);
+      [nums[i], nums[j]] = [nums[j], nums[i]];
+    }
+  };
+
+  dfs(0, nums);
+
+  return result;
+};
+// Time: N! * N
+
 // 05 19 2022
 /**
  * @param {number[]} nums
