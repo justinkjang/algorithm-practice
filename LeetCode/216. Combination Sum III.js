@@ -1,3 +1,41 @@
+// 05 20 2022
+/**
+ * @param {number} k
+ * @param {number} n
+ * @return {number[][]}
+ */
+var combinationSum3 = function (k, n) {
+  const result = [];
+
+  let nums = [];
+  for (let i = 1; i < 10; i++) {
+    nums.push(i);
+  }
+  const dfs = (i, nums, k, slate, n) => {
+    // backtrack
+    if (n < 0) return;
+    // base
+    if (slate.length === k) {
+      if (n === 0) {
+        result.push(slate.slice());
+      }
+
+      return;
+    }
+
+    // recursion
+    for (let j = i; j < nums.length; j++) {
+      slate.push(nums[j]);
+      dfs(j + 1, nums, k, slate, n - nums[j]);
+      slate.pop();
+    }
+  };
+
+  dfs(0, nums, k, [], n);
+
+  return result;
+};
+
 // 05 19 2022
 /**
  * @param {number} k
