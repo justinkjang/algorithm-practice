@@ -1,3 +1,30 @@
+// 05 20 2022
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var subsets = function (nums) {
+  const result = [];
+
+  const dfs = (i, nums, slate) => {
+    if (i === nums.length) {
+      result.push(slate.slice());
+      return;
+    }
+
+    dfs(i + 1, nums, slate);
+
+    slate.push(nums[i]);
+    dfs(i + 1, nums, slate);
+    slate.pop();
+  };
+
+  dfs(0, nums, []);
+
+  return result;
+};
+// Time: 2^N * N
+
 // 05 17 2022
 /**
  * @param {number[]} nums
