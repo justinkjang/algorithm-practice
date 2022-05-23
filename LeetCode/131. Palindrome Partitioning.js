@@ -4,7 +4,7 @@
  * @return {string[][]}
  */
 
-const isPalindrome = (i, j, s) => {
+var isPalindrome = (i, j, s) => {
   while (i < j) {
     if (s[i] !== s[j]) return false;
     i++;
@@ -40,7 +40,7 @@ var partition = function (s) {
  * @param {string} s
  * @return {string[][]}
  */
-const isPalindrome = (s, i, j) => {
+var isPalindrome = (s, i, j) => {
   while (i < j) {
     if (s[i] !== s[j]) return false;
     i++;

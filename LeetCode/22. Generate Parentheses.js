@@ -1,3 +1,36 @@
+// 05 23 2022
+/**
+ * @param {number} n
+ * @return {string[]}
+ */
+var generateParenthesis = function (n) {
+  const result = [];
+
+  const dfs = (i, n, slate, openCount, closeCount) => {
+    //backtrack
+    if (closeCount > openCount) return;
+    if (openCount > n) return;
+
+    // base
+    if (i === n * 2) {
+      result.push(slate.join(''));
+      return;
+    }
+
+    slate.push('(');
+    dfs(i + 1, n, slate, openCount + 1, closeCount);
+    slate.pop();
+
+    slate.push(')');
+    dfs(i + 1, n, slate, openCount, closeCount + 1);
+    slate.pop();
+  };
+
+  dfs(0, n, [], 0, 0);
+
+  return result;
+};
+
 /**
  * @param {number} n
  * @return {string[]}
