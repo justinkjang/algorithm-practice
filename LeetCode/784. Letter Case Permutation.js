@@ -1,3 +1,42 @@
+// 05 31 2022
+/**
+ * @param {string} s
+ * @return {string[]}
+ */
+var letterCasePermutation = function (s) {
+  // binary dfs
+
+  const result = [];
+
+  const dfs = (i, s, slate) => {
+    // base
+    if (i === s.length) {
+      result.push(slate.join(''));
+      return;
+    }
+
+    // dfs
+    if (Number.isInteger(parseInt(s[i]))) {
+      slate.push(s[i]);
+      dfs(i + 1, s, slate);
+      slate.pop();
+    } else {
+      slate.push(s[i].toLowerCase());
+      dfs(i + 1, s, slate);
+      slate.pop();
+
+      slate.push(s[i].toUpperCase());
+      dfs(i + 1, s, slate);
+      slate.pop();
+    }
+  };
+
+  dfs(0, s, []);
+
+  return result;
+};
+//2^n * n Time
+
 // 05 20 2022
 /**
  * @param {string} s
