@@ -1,3 +1,51 @@
+// 06 23 2022
+/**
+ * @param {string} s
+ * @return {string[]}
+ */
+var letterCasePermutation = function (s) {
+  // dfs recursion
+  // a or A
+  // a1   A1
+  // a1b  a1B
+
+  // if letter go lower and uppercase
+  // if number go straight down
+  // at leaf level, push that slate using join'' to the result array
+
+  const result = [];
+
+  const dfs = (i, s, slate) => {
+    //base case
+    if (i === s.length) {
+      result.push(slate.join(''));
+      return;
+    }
+
+    // recursive case
+    let char = s[i];
+    if (!Number.isInteger(parseInt(char))) {
+      slate.push(char.toLowerCase());
+      dfs(i + 1, s, slate);
+      slate.pop();
+
+      slate.push(char.toUpperCase());
+      dfs(i + 1, s, slate);
+      slate.pop();
+    } else {
+      slate.push(char);
+      dfs(i + 1, s, slate);
+      slate.pop();
+    }
+  };
+
+  dfs(0, s, []);
+
+  return result;
+};
+//Time:: 2^n * n
+//Space:: n * n^2
+
 // 05 31 2022
 /**
  * @param {string} s
