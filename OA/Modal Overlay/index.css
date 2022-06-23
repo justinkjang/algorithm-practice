@@ -7,20 +7,23 @@
 }
 
 /* LANDING PAGE */
-.open-btn__container {
+.landing-page {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
-.open-btn__btn {
+.open-btn {
   padding: 1rem;
   font-size: 1rem;
+}
+.open-btn:focus {
+  outline: 0;
 }
 
 /* MODAL */
 .modal {
+  display: none;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -28,19 +31,35 @@
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0, 0, 0);
   background-color: rgb(0, 0, 0, 0.4);
 }
 .modal__container {
   background-color: #fefefe;
-  width: 80%;
-  margin: 15% auto;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 30%;
   padding: 20px;
   border: 1px solid #888;
 }
-.close {
+.modal__close-btn {
   color: #aaa;
-  float: right;
   font-size: 1rem;
   font-weight: bold;
+  cursor: pointer;
+
+  padding: 7px 10px;
+}
+.modal__text {
+  text-align: center;
+  margin: 2rem 0;
+}
+.modal__accept-btn-wrapper {
+  text-align: center;
+}
+.modal__accept-btn {
+  padding: 10px 8px;
 }
