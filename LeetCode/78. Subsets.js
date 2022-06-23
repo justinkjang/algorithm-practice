@@ -1,3 +1,37 @@
+// 06 23 2022
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var subsets = function (nums) {
+  // 1: [] [1]
+  // 2: [] [2] [1] [1,2]
+  // 3: [] [3] [2] [2,3] [1] [1,2,3]
+
+  const result = [];
+
+  const dfs = (i, nums, slate) => {
+    //base case
+    if (i === nums.length) {
+      result.push(slate.slice());
+      return;
+    }
+
+    //recursive case
+    dfs(i + 1, nums, slate);
+
+    slate.push(nums[i]);
+    dfs(i + 1, nums, slate);
+    slate.pop();
+  };
+
+  dfs(0, nums, []);
+
+  return result;
+};
+// Time: 2^n * linear time operation n
+// Space: n * 2^n
+
 // 05 20 2022
 /**
  * @param {number[]} nums
