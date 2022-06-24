@@ -1,3 +1,32 @@
+// 06 23 2022
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function (nums, target) {
+  // [1,2,3]
+  // t = 4
+  // indices of two nums that add up to target
+
+  // create hash map
+  // traverse each el, check if 't - el' exist in hash. while hash[val] !== i
+  // Time = linear Space = linear
+
+  const hash = {};
+  // val : idx
+  for (let i = 0; i < nums.length; i++) {
+    hash[nums[i]] = i;
+  }
+
+  for (let i = 0; i < nums.length; i++) {
+    let potKey = target - nums[i];
+    if (hash[potKey] && hash[potKey] !== i) {
+      return [hash[potKey], i];
+    }
+  }
+};
+
 // 05 13 2022
 /**
  * @param {number[]} nums
