@@ -1,3 +1,45 @@
+// 06 24 2022
+/**
+ * @param {number[][]} triangle
+ * @return {number}
+ */
+var minimumTotal = function (triangle) {
+  // TABULATION Pattern
+  // create a copy of triangle
+  // add the sum of prev row
+  // get Min value of leaf level
+  //Time = n, space = n
+
+  //create table container
+  const result = [];
+
+  // create empty copy of triangle
+  for (let row of triangle) {
+    result.push(new Array(row.length).fill(0));
+  }
+
+  // set first num
+  result[0] = triangle[0];
+
+  for (let row = 1; row < triangle.length; row++) {
+    for (let col = 0; col < triangle[row].length; col++) {
+      //if the case is at the edge
+      if (col === 0) {
+        result[row][col] = result[row - 1][col] + triangle[row][col];
+      } else if (col === triangle[row].length - 1) {
+        result[row][col] = result[row - 1][col - 1] + triangle[row][col];
+      } else {
+        // if the case requires min value comparison
+        result[row][col] =
+          Math.min(result[row - 1][col], result[row - 1][col - 1]) +
+          triangle[row][col];
+      }
+    }
+  }
+
+  return Math.min(...result[result.length - 1]);
+};
+
 // 05-03-2022
 /**
  * @param {number[][]} triangle
@@ -33,7 +75,7 @@ var minimumTotal = function (triangle) {
   return Math.min(...result[result.length - 1]);
 };
 // Dynamic Programming, tabulation concept
-// Time:: n^2
+// Time:: n^2 ?? isn't it a linear scan?
 // Space:: n
 
 /**
