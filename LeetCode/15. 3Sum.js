@@ -1,3 +1,53 @@
+//06 24 2022
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+let twoSum = function (start, nums, target) {
+  let arr = [];
+
+  let end = nums.length - 1;
+
+  while (start < end) {
+    if (target === nums[start] + nums[end]) {
+      arr.push([target * -1, nums[start], nums[end]]);
+      //remove duplicates
+      while (start < end && nums[start] === nums[start + 1]) start++;
+      while (start < end && nums[end] === nums[end - 1]) end--;
+      start++;
+      end--;
+    } else if (target < nums[start] + nums[end]) {
+      end--;
+    } else if (target > nums[start] + nums[end]) {
+      start++;
+    }
+  }
+
+  return arr;
+};
+var threeSum = function (nums) {
+  // Extension of two sums problem
+  // set target as -integer of a traversing element of nums array
+  // use two pointer, start and end, to check if two sums target.
+  // there may be duplicate, so to avoid that, we will use "sort" and "continue" duplicating elements.
+
+  const result = [];
+  nums.sort((a, b) => a - b);
+
+  //traverse each element as target
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === nums[i - 1]) continue;
+
+    let target = nums[i] * -1;
+
+    let subResult = twoSum(i + 1, nums, target);
+    //spread subresult array
+    result.push(...subResult);
+  }
+
+  return result;
+};
+
 // 05 13 2022
 /**
  * @param {number[]} nums
