@@ -1,3 +1,36 @@
+// 06 27 2022
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+var isMonotonic = function (nums) {
+  // Check the first and last element
+  // Three cases: equal, smaller, bigger
+  // while traversing array, if single element doesn't match, return fasle
+
+  // Time: linear / Space: constant
+
+  let same = nums[0] === nums[nums.length - 1];
+  let ascending = nums[0] < nums[nums.length - 1];
+  let dscending = nums[0] > nums[nums.length - 1];
+
+  if (same) {
+    for (let i = 1; i < nums.length; i++) {
+      if (nums[i] !== nums[i - 1]) return false;
+    }
+  } else if (ascending) {
+    for (let i = 1; i < nums.length; i++) {
+      if (nums[i - 1] > nums[i]) return false;
+    }
+  } else if (dscending) {
+    for (let i = 1; i < nums.length; i++) {
+      if (nums[i - 1] < nums[i]) return false;
+    }
+  }
+
+  return true;
+};
+
 // 05 14 2022
 /**
  * @param {number[]} nums

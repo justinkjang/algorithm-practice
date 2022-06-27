@@ -1,13 +1,24 @@
 const numArr = [1, [2, [3], 4, [5, 6, [7]]]];
-const arr = [1, 2, [3], [4]];
+// [1, 2, 3, 4, 5]
 
 let flattenArray = (arr) => {
+  // recursive
+  // create result
+  // if array -> recursion
+  // if not, push into result array
+
+  // Time: n
+  // Space: n
+
   const result = [];
 
-  const dfs = (nested) => {
-    for (let el of nested) {
-      if (Array.isArray(el)) dfs(el);
-      else result.push(el);
+  const dfs = (arr) => {
+    for (let el of arr) {
+      if (Array.isArray(el)) {
+        dfs(el);
+      } else {
+        result.push(el);
+      }
     }
   };
 
@@ -15,7 +26,32 @@ let flattenArray = (arr) => {
 
   return result;
 };
+
 console.log(flattenArray(numArr));
+
+// let flattenArray = (arr) => {
+// recursive
+// if el is array, recursive,
+// if not, push to result array
+
+// Time: linear
+// space: linear
+
+//   const result = [];
+
+//   const dfs = (arr) => {
+//     for (let el of arr) {
+//       if (Array.isArray(el)) dfs(el);
+//       else result.push(el);
+//     }
+//   };
+
+//   dfs(arr);
+
+//   return result;
+// };
+
+// console.log(flattenArray(numArr));
 
 // DFS WAY
 
