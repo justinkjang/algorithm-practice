@@ -2,32 +2,42 @@ const numArr = [1, [2, [3], 4, [5, 6, [7]]]];
 // [1, 2, 3, 4, 5]
 
 let flattenArray = (arr) => {
-  // recursive
-  // create result
-  // if array -> recursion
-  // if not, push into result array
-
-  // Time: n
-  // Space: n
-
-  const result = [];
-
-  const dfs = (arr) => {
-    for (let el of arr) {
-      if (Array.isArray(el)) {
-        dfs(el);
-      } else {
-        result.push(el);
-      }
-    }
-  };
-
-  dfs(arr);
+  const result = arr.reduce(
+    (acc, cur) => acc.concat(Array.isArray(cur) ? flattenArray(cur) : cur),
+    []
+  );
 
   return result;
 };
 
 console.log(flattenArray(numArr));
+
+// ---------
+// // recursive
+// // create result
+// // if array -> recursion
+// // if not, push into result array
+
+// // Time: n
+// // Space: n
+
+// const result = [];
+
+// const dfs = (arr) => {
+//   for (let el of arr) {
+//     if (Array.isArray(el)) {
+//       dfs(el);
+//     } else {
+//       result.push(el);
+//     }
+//   }
+// };
+
+// dfs(arr);
+
+// return result;
+
+// --------
 
 // let flattenArray = (arr) => {
 // recursive

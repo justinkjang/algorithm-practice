@@ -1,0 +1,78 @@
+/* Root */
+:root {
+  --color-primary: rgb(244, 122, 122);
+}
+
+/* CSS Reset */
+*,
+*::before,
+*::after {
+  margin: 0%;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Common */
+.centered {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.graph {
+  width: 700px;
+  height: 700px;
+  display: flex;
+  align-items: flex-end;
+  gap: 30px;
+
+  padding: 0 20px;
+  border: 0px solid #000;
+  border-left-width: 3px;
+  border-bottom-width: 3px;
+
+  position: relative;
+}
+.column {
+  flex: 1;
+  background-color: var(--color-primary);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+
+  position: relative;
+}
+
+.x-axis {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 150%);
+}
+
+.y-axis {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transform: translate(-200%, 0);
+}
+
+.y-one {
+  bottom: 0%;
+}
+.y-two {
+  bottom: 20%;
+}
+.y-three {
+  bottom: 70%;
+}
+
+.one {
+  height: 10%;
+}
+.two {
+  height: 20%;
+}
+.three {
+  height: 30%;
+}
