@@ -1,0 +1,87 @@
+/* Root */
+:root {
+  --color-primary: rgb(63, 63, 188);
+  --color-secondary: rgb(228, 136, 44);
+}
+
+/* CSS Reset */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+header {
+  /* text-align: center;
+  padding: 2rem; */
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 1;
+}
+
+main {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Common */
+.histogram {
+  width: 700px;
+  height: 500px;
+
+  display: flex;
+  gap: 15px;
+  align-items: flex-end;
+
+  border: 0px solid var(--color-primary);
+  border-left-width: 1px;
+  border-bottom-width: 1px;
+  padding: 0 1rem;
+
+  position: relative;
+}
+.column {
+  /* height: 50%; */
+
+  background-color: var(--color-primary);
+  flex: 1;
+
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+
+  position: relative;
+}
+.x-label {
+  position: absolute;
+  color: var(--color-primary);
+  font-size: larger;
+
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 130%);
+}
+.y-label {
+  position: absolute;
+  color: var(--color-primary);
+  font-size: larger;
+
+  left: 0%;
+  transform: translate(-150%, 25%);
+}
+
+/* .zero {
+  bottom: 0%;
+}
+.ten {
+  bottom: 10%;
+} */
