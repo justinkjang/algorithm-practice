@@ -1,3 +1,30 @@
+// 07 19 2022
+/**
+ * @param {number[]} prices
+ * @return {number}
+ */
+var maxProfit = function (prices) {
+  // use stack, tracking min
+
+  // get min
+  // get max of (curr - min)
+
+  // Time = n, Space = 1
+
+  let min = Infinity;
+  let profit = 0;
+
+  for (let price of prices) {
+    min = Math.min(price, min);
+
+    let temp = price - min;
+
+    profit = Math.max(profit, temp);
+  }
+
+  return profit;
+};
+
 // 2022 05 08
 /**
  * @param {number[]} prices
