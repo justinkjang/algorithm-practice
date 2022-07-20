@@ -1,13 +1,19 @@
-const numArr = [1, [2, [3], 4, [5, 6, [7]]]];
+const numArr = [4, 3, 2, 1];
+// const numArr = [1, [2, [3], 4, [5, 6, [7]]]];
 // [1, 2, 3, 4, 5]
 
 let flattenArray = (arr) => {
-  const result = arr.reduce(
-    (acc, cur) => acc.concat(Array.isArray(cur) ? flattenArray(cur) : cur),
-    []
-  );
+  let min = Infinity;
+  let maxDiff = -Infinity;
 
-  return result;
+  for (let num of arr) {
+    if (num < min) min = num;
+
+    maxDiff = Math.max(maxDiff, num - min);
+  }
+
+  if (maxDiff === 0) return -1;
+  return maxDiff;
 };
 
 console.log(flattenArray(numArr));
