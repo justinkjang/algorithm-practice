@@ -1,3 +1,26 @@
+// 07 23 2022
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maxSubArray = function (nums) {
+  // !important: if current num is greater than prev accumulated nums, slide window.
+  // if prev num is greater negative value, we are discarding contiguous process.
+  // Time = n
+
+  let globalMax = nums[0];
+  let sofar = nums[0]; // is curr bigger then accumulated nums ? reset : continue accumulate.
+  // in other words, is there huge negative value that we better disregard?
+
+  for (let i = 1; i < nums.length; i++) {
+    sofar = Math.max(sofar + nums[i], nums[i]);
+
+    globalMax = Math.max(globalMax, sofar);
+  }
+
+  return globalMax;
+};
+
 /**
  * @param {number[]} nums
  * @return {number}
