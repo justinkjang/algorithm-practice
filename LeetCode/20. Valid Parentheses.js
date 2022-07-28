@@ -1,3 +1,33 @@
+// 07 28 2022
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isValid = function (s) {
+  // create stack
+  // is closing bracket comes up, check if it is correctly paired with prev one
+  // if no, false, yes, pop out. if stack = empty true, not false
+  // time = n , space = n
+
+  const stack = [];
+
+  const hash = {
+    ')': '(',
+    '}': '{',
+    ']': '[',
+  };
+
+  for (let paren of s) {
+    if (hash[paren]) {
+      if (stack[stack.length - 1] === hash[paren]) stack.pop();
+      else return false;
+    } else {
+      stack.push(paren);
+    }
+  }
+  return !stack.length ? true : false;
+};
+
 // 07 19 2022
 /**
  * @param {string} s
