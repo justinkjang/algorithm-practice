@@ -1,3 +1,29 @@
+// 07 28 2022
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function (nums, target) {
+  // create hash
+  // check if target - num exist in hash
+  // add that num to hash
+
+  //Time = n, space = n
+
+  const hash = {};
+
+  for (let i = 0; i < nums.length; i++) {
+    let potKey = target - nums[i];
+
+    if (potKey in hash) {
+      return [hash[potKey], i];
+    }
+
+    hash[nums[i]] = i;
+  }
+};
+
 // 06 23 2022
 /**
  * @param {number[]} nums
